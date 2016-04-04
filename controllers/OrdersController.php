@@ -129,9 +129,9 @@ class OrdersController extends Controller
             ]);
         }
         $order = new Orders();
-        $user = Employees::findIdentity(Yii::$app->user->id);
+        //$user = Employees::findIdentity(Yii::$app->user->id);
         $order->employee_id = $user->getId();
-        $order->save();
+        //$order->save();
         return $this->render('create',[
             'model'=>$order,
             '_order'=>$this->renderPartial('_order',['model'=>$order,'deps' => ArrayHelper::map(Departments::find()->all(), 'department_id', 'department_name'),
